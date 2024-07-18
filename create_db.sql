@@ -75,7 +75,7 @@ CREATE TABLE Produto (
     desconto DOUBLE,
     estoque INT NOT NULL,
     idCategoria INT NOT NULL,
-    marcaProduto VARCHAR(15),
+    marcaProduto VARCHAR(255),
     descricaoProduto TEXT,
     idFornecedor INT,
     imagem VARCHAR(300),
