@@ -26,7 +26,7 @@ class Endereco extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'endereco';
+        return 'Endereco';
     }
 
     /**

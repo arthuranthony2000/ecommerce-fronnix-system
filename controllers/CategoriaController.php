@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Categoria;
-use app\modelsCategoriaSearch;
+use app\models\CategoriaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -39,7 +39,7 @@ class CategoriaController extends Controller
     public function actionIndex()
     {
         $this->Autorizacao();
-        $searchModel = new modelsCategoriaSearch();
+        $searchModel = new CategoriaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [

@@ -24,7 +24,7 @@ class Formapagamento extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'formapagamento';
+        return 'Formapagamento';
     }
 
     /**
