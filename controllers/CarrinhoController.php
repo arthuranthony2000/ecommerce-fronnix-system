@@ -19,12 +19,13 @@ class CarrinhoController extends Controller
         $pedido = Pedido::getPedidoUsuario(Yii::$app->user->getId());
         $produtos = Pedidoproduto::getProdutoPedido($pedido->idPedido);
 
-        $comp = Pedidoproduto::find()->where(['idPedido' => $pedido->idPedido])->count();
+        // Verifica se há produtos no carrinho
+        $comp = count($produtos);
 
         return $this->render('index', [
             'pedido' => $pedido,
             'produtos' => $produtos,
-            'comp' => $comp,
+            'comp' => $comp, // Passa a contagem para a view
         ]);
     }
 

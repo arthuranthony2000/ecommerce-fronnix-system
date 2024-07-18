@@ -10,21 +10,18 @@ $number = $produto->idProduto;
 ?>
 
 <h1 class="my-4">
-    <small><?= Html::encode($produto['nomeProduto']) ?></small>
+    <h2><?= Html::encode($produto['nomeProduto']) ?></h2>
+    <p style="overflow: scroll; height: 100px; width: 100%; overflow: auto"><?= Html::encode($produto['descricaoProduto']) ?></p>
 </h1>
 
 <!-- Portfolio Item Row -->
 <div class="row">
 
     <div class="col-md-8">
-        <img class="img-fluid" src="<?= Html::encode($produto['imagem']) ?>" alt="">
+        <img style="max-height: 250px;" class="img-fluid" src="<?= Html::encode($produto['imagem']) ?>" alt="">
     </div>
 
     <div class="col-md-4">
-        <h3 class="my-3">Imagem Ilustrativa</h3>
-        <p>Ideal para você e sua família curtirem com essa sofisticada tecnologia.</p>
-        <h3 class="my-3">Excelente Estado</h3>
-        <p style="overflow: scroll; height: 500px; width: 100%; overflow: auto"><?= Html::encode($produto['descricaoProduto']) ?></p>
 
         <p>
             <?php if (!Yii::$app->user->isGuest) : ?>
@@ -59,7 +56,7 @@ $number = $produto->idProduto;
     <?php foreach ($consultas as $consulta) : ?>
         <div class="col-md-3 col-sm-6 mb-4">
             <a href="<?= Url::to(['site/detalhe', 'idProduto' => $consulta->idProduto, 'idCategoria' => $consulta->idCategoria]) ?>">
-                <img class="img-fluid" style="max-height: 300px; overflow: hidden;" src="<?= Html::encode($consulta['imagem']) ?>" alt="">
+                <img class="img-fluid" style="max-height: 150px; overflow: hidden;" src="<?= Html::encode($consulta['imagem']) ?>" alt="">
             </a>
         </div>
     <?php endforeach; ?>
