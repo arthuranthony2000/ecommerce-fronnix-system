@@ -44,8 +44,10 @@ INSERT INTO Categoria (nomeCategoria, descricaoCategoria) VALUES ('Armas', 'Equi
 INSERT INTO Categoria (nomeCategoria, descricaoCategoria) VALUES ('Livros', 'Diversos tipos de livros e publicações, abrangendo diferentes gêneros e assuntos.');
 INSERT INTO Categoria (nomeCategoria, descricaoCategoria) VALUES ('Carros', 'Veículos automotores de diversos modelos, incluindo carros, caminhões e motos.');
 
--- Inserir cliente arthur
-INSERT INTO Cliente (nomeCliente, emailCliente, cpfCliente, idEndereco, idUsuario) VALUES ('Arthur', 'arthur@mail.com', '123.456.789-00', 1, 2);
+-- Inserir cliente Arthur
+INSERT INTO Cliente (nomeCliente, sobrenomeCliente, emailCliente, telefoneCliente, cpfCliente, rgCliente, dataNascimento, idEndereco, idUsuario) 
+VALUES ('Arthur', NULL, 'arthur@mail.com', NULL, '123.456.789-00', NULL, '09/02/2000', 1, 2);
+
 
 -- Inserir fornecedores 
 INSERT INTO Fornecedor (nomeFornecedor, emailFornecedor, cnpjFornecedor, idEndereco, idUsuario) VALUES ('Isaac Bruno Sales', 'isaac@mail.com', '24.580.006/0001-43', 1, 3);
