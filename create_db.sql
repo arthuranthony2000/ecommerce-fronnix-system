@@ -8,7 +8,7 @@ CREATE TABLE Usuario (
     acess_token VARCHAR(45),
     auth_key VARCHAR(45),
     tipoUsuario VARCHAR(45),
-    status INT DEFAULT 1,
+    status INT DEFAULT 0,
 
     UNIQUE KEY `username_UNIQUE` (`username`)
 );
