@@ -44,7 +44,7 @@ class FormapagamentoController extends Controller
      */
     public function actionIndex()
     {
-        $this->Autorizacao();    
+        $this->Autorizacao();
         $searchModel = new FormapagamentoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -75,17 +75,15 @@ class FormapagamentoController extends Controller
      */
     public function actionCreate($idPedido)
     {
-        if(!Yii::$app->user->isGuest){
-            $cliente = Cliente::find()->where(['idUsuario'=> Yii::$app->user->identity->idUsuario])->one();
-            $condicao= is_object($cliente);
-            if(Yii::$app->user->identity->tipoUsuario == "administrador" || Yii::$app->user->identity->tipoUsuario == "fornecedor"){
-            return $this->redirect(['site/index']);
-    }
-        elseif (Yii::$app->user->identity->tipoUsuario == "cliente" && $condicao != true) {
-                 return $this->redirect(['cliente/create']);
-             }
-}
-        else{
+        if (!Yii::$app->user->isGuest) {
+            $cliente = Cliente::find()->where(['idUsuario' => Yii::$app->user->identity->idUsuario])->one();
+            $condicao = is_object($cliente);
+            if (Yii::$app->user->identity->tipoUsuario == "administrador" || Yii::$app->user->identity->tipoUsuario == "fornecedor") {
+                return $this->redirect(['site/index']);
+            } elseif (Yii::$app->user->identity->tipoUsuario == "cliente" && $condicao != true) {
+                return $this->redirect(['cliente/create']);
+            }
+        } else {
             return $this->redirect(['site/index']);
         }
 
@@ -98,20 +96,19 @@ class FormapagamentoController extends Controller
         $model->idPedido = $pedido->idPedido;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $pedido->finalizado='1';
+            $pedido->finalizado = '1';
             $pedido->save();
             $iteracaopedidos = Pedidoproduto::find()->all();
             foreach ($iteracaopedidos as $iteracaopedido) {
-                if($iteracaopedido->idPedido == $pedido->idPedido){
+                if ($iteracaopedido->idPedido == $pedido->idPedido) {
                     $produto = Produto::findOne($iteracaopedido->idProduto);
-                    if($produto->estoque > 0){
-                        if($iteracaopedido->qtdProduto >= $produto->estoque){
+                    if ($produto->estoque > 0) {
+                        if ($iteracaopedido->qtdProduto >= $produto->estoque) {
                             $iteracaopedido->qtdProduto = $produto->estoque;
                             $produto->estoque = 0;
                             $produto->save();
-                        }
-                        else{
-                            $produto->estoque = $produto->estoque-$iteracaopedido->qtdProduto;
+                        } else {
+                            $produto->estoque = $produto->estoque - $iteracaopedido->qtdProduto;
                             $produto->save();
                         }
                     }
@@ -169,21 +166,21 @@ class FormapagamentoController extends Controller
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
-    {        
+    {
         if (($model = Formapagamento::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
-    public function Autorizacao(){
-        if(!Yii::$app->user->isGuest){
+    public function Autorizacao()
+    {
+        if (!Yii::$app->user->isGuest) {
 
-            if(Yii::$app->user->identity->tipoUsuario == "fornecedor" || Yii::$app->user->identity->tipoUsuario == "cliente"){
-            return $this->redirect(['site/index']);
-    }
-}
-        else{
+            if (Yii::$app->user->identity->tipoUsuario == "fornecedor" || Yii::$app->user->identity->tipoUsuario == "cliente") {
+                return $this->redirect(['site/index']);
+            }
+        } else {
             return $this->redirect(['site/index']);
         }
     }

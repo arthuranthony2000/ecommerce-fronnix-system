@@ -21,7 +21,7 @@ class SiteController extends Controller
      */
 
     /*public $layout = 'main';*/
-    
+
     public function behaviors()
     {
         return [
@@ -67,24 +67,22 @@ class SiteController extends Controller
      * @return string
      */
     public function actionIndex()
-    {               
-        if(!Yii::$app->user->isGuest){
-            $cliente = Cliente::find()->where(['idUsuario'=> Yii::$app->user->identity->idUsuario])->one();
-            $condicao= is_object($cliente); 
-           if(Yii::$app->user->identity->tipoUsuario == "administrador"){
-            return $this->redirect(['administrador/index']);
-        }
-        elseif (Yii::$app->user->identity->tipoUsuario == "fornecedor") {
-                 return $this->redirect(['gerencia/index']);
-             }
-        elseif (Yii::$app->user->identity->tipoUsuario == "cliente" && $condicao != true) {
-                 return $this->redirect(['cliente/create']);
-             }     
+    {
+        if (!Yii::$app->user->isGuest) {
+            $cliente = Cliente::find()->where(['idUsuario' => Yii::$app->user->identity->idUsuario])->one();
+            $condicao = is_object($cliente);
+            if (Yii::$app->user->identity->tipoUsuario == "administrador") {
+                return $this->redirect(['administrador/index']);
+            } elseif (Yii::$app->user->identity->tipoUsuario == "fornecedor") {
+                return $this->redirect(['gerencia/index']);
+            } elseif (Yii::$app->user->identity->tipoUsuario == "cliente" && $condicao != true) {
+                return $this->redirect(['cliente/create']);
+            }
         }
 
-        
 
-        $finalizado = 0;        
+
+        $finalizado = 0;
         $produtos = Produto::find()->All();
         $categorias = Categoria::find()->All();
 
@@ -96,24 +94,22 @@ class SiteController extends Controller
     }
 
     public function actionFinalizado()
-    {               
-        if(!Yii::$app->user->isGuest){
-            $cliente = Cliente::find()->where(['idUsuario'=> Yii::$app->user->identity->idUsuario])->one();
-            $condicao= is_object($cliente); 
-           if(Yii::$app->user->identity->tipoUsuario == "administrador"){
-            return $this->redirect(['administrador/index']);
-        }
-        elseif (Yii::$app->user->identity->tipoUsuario == "fornecedor") {
-                 return $this->redirect(['gerencia/index']);
-             }
-        elseif (Yii::$app->user->identity->tipoUsuario == "cliente" && $condicao != true) {
-                 return $this->redirect(['cliente/create']);
-             }     
+    {
+        if (!Yii::$app->user->isGuest) {
+            $cliente = Cliente::find()->where(['idUsuario' => Yii::$app->user->identity->idUsuario])->one();
+            $condicao = is_object($cliente);
+            if (Yii::$app->user->identity->tipoUsuario == "administrador") {
+                return $this->redirect(['administrador/index']);
+            } elseif (Yii::$app->user->identity->tipoUsuario == "fornecedor") {
+                return $this->redirect(['gerencia/index']);
+            } elseif (Yii::$app->user->identity->tipoUsuario == "cliente" && $condicao != true) {
+                return $this->redirect(['cliente/create']);
+            }
         }
 
-        
 
-        $finalizado = 1;        
+
+        $finalizado = 1;
         $produtos = Produto::find()->All();
         $categorias = Categoria::find()->All();
 
@@ -139,15 +135,13 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             $usuario = Usuario::findOne(Yii::$app->user->identity->idUsuario);
-            $usuario->status = '1';  
-            $usuario->save();          
-            if(Yii::$app->user->identity->tipoUsuario == "cliente"){
+            $usuario->status = '1';
+            $usuario->save();
+            if (Yii::$app->user->identity->tipoUsuario == "cliente") {
                 return $this->redirect(['index']);
-            }
-            elseif(Yii::$app->user->identity->tipoUsuario == "fornecedor"){
+            } elseif (Yii::$app->user->identity->tipoUsuario == "fornecedor") {
                 return $this->redirect(['gerencia/index']);
-            }
-            elseif(Yii::$app->user->identity->tipoUsuario == "administrador"){
+            } elseif (Yii::$app->user->identity->tipoUsuario == "administrador") {
                 return $this->redirect(['administrador/index']);
             }
         }
@@ -158,7 +152,7 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionLoginCompra($idProduto,$idCategoria)
+    public function actionLoginCompra($idProduto, $idCategoria)
     {
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
@@ -167,15 +161,13 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             $usuario = Usuario::findOne(Yii::$app->user->identity->idUsuario);
-            $usuario->status = '1';  
-            $usuario->save();          
-            if(Yii::$app->user->identity->tipoUsuario == "cliente"){
-                return $this->redirect(['site/detalhe','idProduto'=>$idProduto,'idCategoria'=>$idCategoria]);
-            }
-            elseif(Yii::$app->user->identity->tipoUsuario == "fornecedor"){
+            $usuario->status = '1';
+            $usuario->save();
+            if (Yii::$app->user->identity->tipoUsuario == "cliente") {
+                return $this->redirect(['site/detalhe', 'idProduto' => $idProduto, 'idCategoria' => $idCategoria]);
+            } elseif (Yii::$app->user->identity->tipoUsuario == "fornecedor") {
                 return $this->redirect(['gerencia/index']);
-            }
-            elseif(Yii::$app->user->identity->tipoUsuario == "administrador"){
+            } elseif (Yii::$app->user->identity->tipoUsuario == "administrador") {
                 return $this->redirect(['administrador/index']);
             }
         }
@@ -191,16 +183,15 @@ class SiteController extends Controller
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
-        
+
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             $usuario = Usuario::findOne(Yii::$app->user->identity->idUsuario);
-            $usuario->status = '1';  
-            $usuario->save();            
-            if(Yii::$app->user->identity->tipoUsuario == "cliente"){
+            $usuario->status = '1';
+            $usuario->save();
+            if (Yii::$app->user->identity->tipoUsuario == "cliente") {
                 return $this->redirect(['cliente/create']);
-            }
-            elseif(Yii::$app->user->identity->tipoUsuario == "fornecedor"){
+            } elseif (Yii::$app->user->identity->tipoUsuario == "fornecedor") {
                 return $this->redirect(['fornecedor/create']);
             }
         }
@@ -210,7 +201,7 @@ class SiteController extends Controller
         ]);
     }
 
-    
+
 
     /**
      * Logout action.
@@ -220,7 +211,7 @@ class SiteController extends Controller
     public function actionLogout()
     {
         $usuario = Usuario::findOne(Yii::$app->user->identity->idUsuario);
-        $usuario->status = '0';  
+        $usuario->status = '0';
         $usuario->save();
         Yii::$app->user->logout();
 
@@ -255,39 +246,40 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    public function actionDetalhe($idProduto,$idCategoria)
+    public function actionDetalhe($idProduto, $idCategoria)
     {
         $produto = Produto::findOne($idProduto);
-        $objetos = Produto::find()->all();
+        //$objetos = Produto::find()->all();
         $consultas = Produto::find()
-        ->where('Produto.idCategoria=:idCategoria', [':idCategoria' => $idCategoria])
-        ->all();  
-        return $this->render('detalhe',[
+            ->where('Produto.idCategoria=:idCategoria', [':idCategoria' => $idCategoria])
+            ->all();
+        return $this->render('detalhe', [
             'produto' => $produto,
-            'objetos' => $objetos,
+            //'objetos' => $objetos,
             'consultas' => $consultas,
         ]);
     }
+
     public function actionCarrinho($idProduto)
     {
         $produto = Produto::findOne($idProduto);
-        $objetos = Produto::find()->all();  
-        return $this->render('carrinho',[
+        //$objetos = Produto::find()->all();  
+        return $this->render('carrinho', [
             'produto' => $produto,
-            'objetos' => $objetos
+            //'objetos' => $objetos
         ]);
-    } 
-      
-     public function actionProduto($id)
+    }
+
+    public function actionProduto($id)
     {
-         $consultas = Produto::find()
-        ->where('Produto.idCategoria=:id', [':id' => $id])
-        ->all();
+        $consultas = Produto::find()
+            ->where('Produto.idCategoria=:id', [':id' => $id])
+            ->all();
         $categorias = Categoria::find()->All();
 
-        return $this->render('produto',[
+        return $this->render('produto', [
             'consultas' => $consultas,
-            'categorias' => $categorias                 
+            'categorias' => $categorias
         ]);
-    }     
+    }
 }

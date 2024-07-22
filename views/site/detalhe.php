@@ -17,8 +17,8 @@ $number = $produto->idProduto;
 <!-- Portfolio Item Row -->
 <div class="row">
 
-    <div class="col-md-8">
-        <img style="max-height: 250px;" class="img-fluid" src="<?= Html::encode($produto['imagem']) ?>" alt="">
+    <div class="col-md-8" style="display: flex; justify-content: center; padding-bottom: 100px">
+        <img style="max-height: 200px; max-width: 200px;" class="img-fluid" src="<?= Html::encode($produto['imagem']) ?>" alt="">
     </div>
 
     <div class="col-md-4">
@@ -56,7 +56,7 @@ $number = $produto->idProduto;
     <?php foreach ($consultas as $consulta) : ?>
         <div class="col-md-3 col-sm-6 mb-4">
             <a href="<?= Url::to(['site/detalhe', 'idProduto' => $consulta->idProduto, 'idCategoria' => $consulta->idCategoria]) ?>">
-                <img class="img-fluid" style="max-height: 150px; overflow: hidden;" src="<?= Html::encode($consulta['imagem']) ?>" alt="">
+                <img class="img-fluid" style="max-height: 150px; max-width: 150px; overflow: hidden;" src="<?= Html::encode($consulta['imagem']) ?>" alt="">
             </a>
         </div>
     <?php endforeach; ?>
