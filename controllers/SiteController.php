@@ -294,14 +294,26 @@ class SiteController extends Controller
 
     public function actionProduto($id)
     {
-        $consultas = Produto::find()
-            ->where('Produto.idCategoria=:id', [':id' => $id])
+        $query = Produto::find()
+            ->where('Produto.idCategoria=:id', [':id' => $id]);
+
+        $countQuery = clone $query;
+        $pagination = new \yii\data\Pagination([
+            'totalCount' => $countQuery->count(),
+            'pageSize' => 9, // Número de itens por página
+        ]);
+
+        $consultas = $query->offset($pagination->offset)
+            ->limit($pagination->limit)
             ->all();
-        $categorias = Categoria::find()->All();
+
+        $categorias = Categoria::find()->all();
 
         return $this->render('produto', [
             'consultas' => $consultas,
-            'categorias' => $categorias
+            'categorias' => $categorias,
+            'pagination' => $pagination,
         ]);
     }
+
 }
