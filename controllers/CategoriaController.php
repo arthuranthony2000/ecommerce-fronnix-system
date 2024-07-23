@@ -69,7 +69,7 @@ class CategoriaController extends Controller
      */
     public function actionCreate()
     {
-        $this->Autorizacao();        
+        $this->Autorizacao();
         $model = new Categoria();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->idCategoria]);
@@ -124,7 +124,7 @@ class CategoriaController extends Controller
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
-    {        
+    {
         if (($model = Categoria::findOne($id)) !== null) {
             return $model;
         }
@@ -132,13 +132,13 @@ class CategoriaController extends Controller
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
 
-    public function Autorizacao(){
-        if(!Yii::$app->user->isGuest){
-            if(Yii::$app->user->identity->tipoUsuario == "fornecedor" || Yii::$app->user->identity->tipoUsuario == "cliente"){
-            return $this->redirect(['site/index']);
-    }
-}
-        else{
+    public function Autorizacao()
+    {
+        if (!Yii::$app->user->isGuest) {
+            if (Yii::$app->user->identity->tipoUsuario == "fornecedor" || Yii::$app->user->identity->tipoUsuario == "cliente") {
+                return $this->redirect(['site/index']);
+            }
+        } else {
             return $this->redirect(['site/index']);
         }
     }

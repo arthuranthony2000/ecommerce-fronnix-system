@@ -69,7 +69,7 @@ class ClienteController extends Controller
      */
     public function actionCreate()
     {
-        if(Yii::$app->user->isGuest){
+        if (Yii::$app->user->isGuest) {
             return $this->redirect(['site/index']);
         }
         $model = new Cliente();
@@ -94,7 +94,7 @@ class ClienteController extends Controller
     public function actionUpdate($id)
     {
         $this->Autorizacao();
-        if(Yii::$app->user->isGuest){
+        if (Yii::$app->user->isGuest) {
             return $this->redirect(['site/index']);
         }
 
@@ -139,13 +139,13 @@ class ClienteController extends Controller
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
-    public function Autorizacao(){        
-        if(!Yii::$app->user->isGuest){
-            if(Yii::$app->user->identity->tipoUsuario == "fornecedor" || Yii::$app->user->identity->tipoUsuario == "cliente"){
-            return $this->redirect(['site/index']);
-    }
-}
-        else{
+    public function Autorizacao()
+    {
+        if (!Yii::$app->user->isGuest) {
+            if (Yii::$app->user->identity->tipoUsuario == "fornecedor" || Yii::$app->user->identity->tipoUsuario == "cliente") {
+                return $this->redirect(['site/index']);
+            }
+        } else {
             return $this->redirect(['site/index']);
         }
     }

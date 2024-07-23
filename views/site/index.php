@@ -1,12 +1,16 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $finalizado int */
+/* @var $produtos app\models\Produto[] */
+/* @var $categorias app\models\Categoria[] */
+/* @var $pagination yii\data\Pagination */
 
 use yii\helpers\Url;
 use yii\helpers\Html;
+use yii\widgets\LinkPager;
 
 $this->title = 'Fronnix';
-
 ?>
 
 <?php
@@ -18,40 +22,24 @@ if ($finalizado == 1) {
     }
     bemVindo();  
   </script>
-
   <?php
 }
 ?>
-
-
 
 <div class="site-index">
 
   <div class="container">
 
-
-
     <div class="row">
       <div class="col-lg-3">
-        <h6 class="my-4">Categorias</h4>
-
-          <?php
-
-          foreach ($categorias as $categoria) {
-
-
-            ?>
-
-            <div class="list-group">
-              <a href="<?= Url::toRoute(['site/produto', 'id' => $categoria->idCategoria]) ?>"
-                class="list-group-item"><?= $categoria['nomeCategoria'] ?></a>
-              <br />
-            </div>
-
-            <?php
-
-
-          } ?>
+        <h6 class="my-4">Categorias</h6>
+        <?php foreach ($categorias as $categoria): ?>
+          <div class="list-group">
+            <a href="<?= Url::toRoute(['site/produto', 'id' => $categoria->idCategoria]) ?>"
+              class="list-group-item"><?= $categoria['nomeCategoria'] ?></a>
+            <br />
+          </div>
+        <?php endforeach; ?>
       </div>
       <!-- /.col-lg-3 -->
 
@@ -84,50 +72,52 @@ if ($finalizado == 1) {
           </a>
         </div>
 
-
-
-
-
         <div class="row">
-          <?php
-          foreach ($produtos as $produto) {
-            if ($produto->estoque > 0) {
-              ?>
-              <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                  <div style="display: flex; justify-content: center">
+          <?php foreach ($produtos as $produto): ?>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100">
+                <div style="display: flex; justify-content: center">
+                  <a
+                    href="<?= Url::toRoute(['site/detalhe', 'idProduto' => $produto->idProduto, 'idCategoria' => $produto->idCategoria]) ?>">
+                    <img class="card-img-top"
+                      style="padding-top: 10px; max-height: 150px; max-width: 150px; overflow: hidden;"
+                      src="<?= $produto['imagem'] ?>" alt="">
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">
                     <a
-                      href="<?= Url::toRoute(['site/detalhe', 'idProduto' => $produto->idProduto, 'idCategoria' => $produto->idCategoria]) ?>">
-                      <img class="card-img-top" style="padding-top: 10px;max-height: 150px; max-width: 150px; overflow: hidden;"
-                        src="<?= $produto['imagem'] ?>" alt=""></a>
-                  </div>
-                  <div class="card-body">
-                    <h4 class="card-title">
-                      <a
-                        href="<?= Url::toRoute(['site/detalhe', 'idProduto' => $produto->idProduto, 'idCategoria' => $produto->idCategoria]) ?>"><?= $produto['nomeProduto'] ?></a>
-                    </h4>
-                    <h5><?= $produto['valorProduto'] ?> R$ </h5>
-                    <h6 style="overflow:scroll;height:100px;width:100%;overflow:auto"><?= $produto['descricaoProduto'] ?>
-                    </h6>
-                  </div>
-                  <div class="card-footer">
-                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                    <?= Html::a(Yii::t('app', 'Comprar'), ['site/detalhe', 'idProduto' => $produto->idProduto, 'idCategoria' => $produto->idCategoria], ['class' => 'btn btn-success']) ?>
-                  </div>
+                      href="<?= Url::toRoute(['site/detalhe', 'idProduto' => $produto->idProduto, 'idCategoria' => $produto->idCategoria]) ?>"><?= $produto['nomeProduto'] ?></a>
+                  </h4>
+                  <h5>R$ <?= $produto['valorProduto'] ?></h5>
+                  <h6 style="overflow:scroll; height:100px; width:100%; overflow:auto"><?= $produto['descricaoProduto'] ?>
+                  </h6>
+                </div>
+                <div class="card-footer" style="display: flex; justify-content: center;">
+                  <!-- <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small> -->
+                  <?= Html::a(Yii::t('app', 'Comprar'), ['site/detalhe', 'idProduto' => $produto->idProduto, 'idCategoria' => $produto->idCategoria], ['class' => 'btn btn-success']) ?>
                 </div>
               </div>
-
-              <?php
-            }
-          }
-          ?>
-
+            </div>
+          <?php endforeach; ?>
         </div>
 
+        <!-- Widget de Paginação -->
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center">
+            <?= LinkPager::widget([
+              'pagination' => $pagination,
+              'options' => ['class' => 'pagination'], // Adiciona a classe pagination
+              'linkOptions' => ['class' => 'page-link'], // Adiciona a classe page-link aos links
+              'pageCssClass' => 'page-item', // Adiciona a classe page-item aos itens da página
+              'prevPageCssClass' => 'page-item', // Classe para o botão anterior
+              'nextPageCssClass' => 'page-item', // Classe para o próximo botão
+              'firstPageCssClass' => 'page-item', // Classe para o primeiro botão
+              'lastPageCssClass' => 'page-item', // Classe para o último botão
+            ]) ?>
+          </div>
+        </div>
 
-
-
-        <!-- /.row -->
 
       </div>
       <!-- /.col-lg-9 -->

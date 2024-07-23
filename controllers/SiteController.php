@@ -80,18 +80,29 @@ class SiteController extends Controller
             }
         }
 
-
-
         $finalizado = 0;
-        $produtos = Produto::find()->All();
-        $categorias = Categoria::find()->All();
+
+        // Paginação para produtos
+        $query = Produto::find()->where(['>', 'estoque', 0]);
+        $pagination = new \yii\data\Pagination([
+            'defaultPageSize' => 10,
+            'totalCount' => $query->count(),
+        ]);
+
+        $produtos = $query->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+
+        $categorias = Categoria::find()->all();
 
         return $this->render('index', [
             'finalizado' => $finalizado,
             'produtos' => $produtos,
-            'categorias' => $categorias
+            'categorias' => $categorias,
+            'pagination' => $pagination,
         ]);
     }
+
 
     public function actionFinalizado()
     {
@@ -107,18 +118,29 @@ class SiteController extends Controller
             }
         }
 
-
-
         $finalizado = 1;
-        $produtos = Produto::find()->All();
-        $categorias = Categoria::find()->All();
+
+        // Paginação para produtos
+        $query = Produto::find()->where(['>', 'estoque', 0]);
+        $pagination = new \yii\data\Pagination([
+            'defaultPageSize' => 10,
+            'totalCount' => $query->count(),
+        ]);
+
+        $produtos = $query->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+
+        $categorias = Categoria::find()->all();
 
         return $this->render('index', [
             'finalizado' => $finalizado,
             'produtos' => $produtos,
-            'categorias' => $categorias
+            'categorias' => $categorias,
+            'pagination' => $pagination,
         ]);
     }
+
 
     /**
      * Login action.

@@ -19,8 +19,8 @@ class PedidoController extends Controller
      */
 
     public $layout = 'main';
-    
-    
+
+
     public function behaviors()
     {
         return [
@@ -101,7 +101,7 @@ class PedidoController extends Controller
             'model' => $model,
         ]);
     }
-    
+
     /**
      * Deletes an existing Pedido model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -132,14 +132,14 @@ class PedidoController extends Controller
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
-    public function Autorizacao(){
-        if(!Yii::$app->user->isGuest){
+    public function Autorizacao()
+    {
+        if (!Yii::$app->user->isGuest) {
 
-            if(Yii::$app->user->identity->tipoUsuario == "fornecedor" || Yii::$app->user->identity->tipoUsuario == "cliente"){
-            return $this->redirect(['site/index']);
-    }
-}
-        else{
+            if (Yii::$app->user->identity->tipoUsuario == "fornecedor" || Yii::$app->user->identity->tipoUsuario == "cliente") {
+                return $this->redirect(['site/index']);
+            }
+        } else {
             return $this->redirect(['site/index']);
         }
     }

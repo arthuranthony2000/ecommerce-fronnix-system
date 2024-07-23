@@ -71,10 +71,10 @@ class UsuarioController extends Controller
     {
         $model = new Usuario();
 
-        if($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['site/cadastro']);
         }
-        
+
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -90,7 +90,7 @@ class UsuarioController extends Controller
     public function actionUpdate($id)
     {
         $this->Autorizacao();
-        
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -132,14 +132,14 @@ class UsuarioController extends Controller
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
-    public function Autorizacao(){
-        if(!Yii::$app->user->isGuest){
+    public function Autorizacao()
+    {
+        if (!Yii::$app->user->isGuest) {
 
-            if(Yii::$app->user->identity->tipoUsuario == "fornecedor" || Yii::$app->user->identity->tipoUsuario == "cliente"){
-            return $this->redirect(['site/index']);
-    }
-}
-        else{
+            if (Yii::$app->user->identity->tipoUsuario == "fornecedor" || Yii::$app->user->identity->tipoUsuario == "cliente") {
+                return $this->redirect(['site/index']);
+            }
+        } else {
             return $this->redirect(['site/index']);
         }
     }

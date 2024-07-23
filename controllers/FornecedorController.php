@@ -18,8 +18,8 @@ class FornecedorController extends Controller
      * @inheritdoc
      */
 
-    public $layout = 'main';    
-    
+    public $layout = 'main';
+
     public function behaviors()
     {
         return [
@@ -69,12 +69,12 @@ class FornecedorController extends Controller
      */
     public function actionCreate()
     {
-        if(Yii::$app->user->isGuest){
+        if (Yii::$app->user->isGuest) {
             return $this->redirect(['site/index']);
         }
         $model = new Fornecedor();
         $model->idUsuario = Yii::$app->user->identity->idUsuario;
-        
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['gerencia/index']);
         }
@@ -135,14 +135,14 @@ class FornecedorController extends Controller
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
-    public function Autorizacao(){
-        if(!Yii::$app->user->isGuest){
+    public function Autorizacao()
+    {
+        if (!Yii::$app->user->isGuest) {
 
-            if(Yii::$app->user->identity->tipoUsuario == "fornecedor" || Yii::$app->user->identity->tipoUsuario == "cliente"){
-            return $this->redirect(['site/index']);
-    }
-}
-        else{
+            if (Yii::$app->user->identity->tipoUsuario == "fornecedor" || Yii::$app->user->identity->tipoUsuario == "cliente") {
+                return $this->redirect(['site/index']);
+            }
+        } else {
             return $this->redirect(['site/index']);
         }
     }

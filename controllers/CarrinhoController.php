@@ -70,7 +70,7 @@ class CarrinhoController extends Controller
         $produto = Produto::findOne($idProduto);
 
         $pedidoproduto = Pedidoproduto::find()->where(['idPedido' => $pedido->idPedido, 'idProduto' => $idProduto])->one();
-        
+
         if ($pedidoproduto !== null) {
             if ($qtdProduto < 0) {
                 $qtdProduto = -$qtdProduto;
@@ -79,7 +79,7 @@ class CarrinhoController extends Controller
             } elseif ($qtdProduto > $produto->estoque) {
                 $qtdProduto = $produto->estoque;
             }
-            
+
             $pedidoproduto->qtdProduto = $qtdProduto;
             $pedidoproduto->save();
         }

@@ -20,7 +20,7 @@ class PedidoProdutoController extends Controller
 
     public $layout = 'main';
 
-    
+
     public function behaviors()
     {
         return [
@@ -137,14 +137,14 @@ class PedidoProdutoController extends Controller
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
-    public function Autorizacao(){
-        if(!Yii::$app->user->isGuest){
+    public function Autorizacao()
+    {
+        if (!Yii::$app->user->isGuest) {
 
-            if(Yii::$app->user->identity->tipoUsuario == "fornecedor" || Yii::$app->user->identity->tipoUsuario == "cliente"){
-            return $this->redirect(['site/index']);
-    }
-}
-        else{
+            if (Yii::$app->user->identity->tipoUsuario == "fornecedor" || Yii::$app->user->identity->tipoUsuario == "cliente") {
+                return $this->redirect(['site/index']);
+            }
+        } else {
             return $this->redirect(['site/index']);
         }
     }

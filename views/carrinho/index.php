@@ -44,8 +44,8 @@ $this->registerJsFile('@web/js/scripts.js', ['depends' => '\yii\web\JqueryAsset'
                             </div>
                         </div>
                     </td>
-                    <td data-th="Price"><?= $colecao->valorProduto ?> R$</td>
-                    <td data-th="Price"><?= $colecao->desconto ?> R$</td>
+                    <td data-th="Price">R$ <?= $colecao->valorProduto ?></td>
+                    <td data-th="Price">R$ <?= $colecao->desconto ?></td>
                     <td data-th="Quantity">
                         <input idproduto="<?= $produto->idProduto ?>" type="number" min="1"
                             class="form-control text-center qtdProduto" value="<?= $produto->qtdProduto ?>">

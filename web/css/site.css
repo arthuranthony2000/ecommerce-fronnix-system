@@ -114,3 +114,43 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .page-item {
+    margin: 0 5px;
+  }
+  
+  .page-link {
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .page-link:hover {
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .page-link:focus, .page-link:active {
+    outline: none;
+    box-shadow: none;
+  }
+  
