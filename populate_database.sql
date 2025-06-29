@@ -40,7 +40,7 @@ INSERT INTO Endereco (pais, cep, bairro, endereco, numEstabelecimento) VALUES ('
 INSERT INTO Categoria (nomeCategoria, descricaoCategoria) VALUES ('Alimentos', 'Produtos alimentícios de diversos tipos, como frutas, vegetais, carnes e grãos.');
 INSERT INTO Categoria (nomeCategoria, descricaoCategoria) VALUES ('Informática', 'Produtos e acessórios de tecnologia, como computadores, periféricos e softwares.');
 INSERT INTO Categoria (nomeCategoria, descricaoCategoria) VALUES ('Roupas', 'Vestuário e acessórios de moda, incluindo calças, camisas, vestidos e calçados.');
-INSERT INTO Categoria (nomeCategoria, descricaoCategoria) VALUES ('Armas', 'Equipamentos de defesa pessoal e artigos de caça, como facas, armas de fogo e munições.');
+-- INSERT INTO Categoria (nomeCategoria, descricaoCategoria) VALUES ('Armas', 'Equipamentos de defesa pessoal e artigos de caça, como facas, armas de fogo e munições.');
 INSERT INTO Categoria (nomeCategoria, descricaoCategoria) VALUES ('Livros', 'Diversos tipos de livros e publicações, abrangendo diferentes gêneros e assuntos.');
 INSERT INTO Categoria (nomeCategoria, descricaoCategoria) VALUES ('Carros', 'Veículos automotores de diversos modelos, incluindo carros, caminhões e motos.');
 
@@ -64,7 +64,7 @@ INSERT INTO Fornecedor (nomeFornecedor, emailFornecedor, cnpjFornecedor, idEnder
 
 -- Inserir produtos
 -- Alimentos
-INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES ('Maçã', 3.50, 100, 1, 3, 'Frutas do Vale', 'Maçã fresca', 'https://hortifruti.com.br/media/catalog/product/cache/90a67334732b2408839e146d4f241496/1/0/100171-maca-red-unidade.jpg');
+INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES ('Maçã', 3.50, 100, 1, 3, 'Frutas do Vale', 'Maçã fresca', 'https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg');
 INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES ('Banana', 2.50, 200, 1, 4, 'Tropical Frutas', 'Banana nanica', 'https://tdc0wy.vteximg.com.br/arquivos/ids/157903-1000-1000/BANANA-NANICA-KG.png?v=637963609452530000');
 INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES ('Carne Bovina', 20.00, 50, 1, 5, 'Frigorífico Boi Bom', 'Carne bovina de primeira', 'https://www.comprerural.com/wp-content/uploads/2017/12/carne-bovina-41.jpg');
 INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES ('Leite', 4.00, 150, 1, 6, 'Laticínios Leitinho', 'Leite integral', 'https://s1.static.brasilescola.uol.com.br/be/conteudo/images/caixinha-leite-longa-vida-53601e57211bd.jpg');
@@ -90,7 +90,7 @@ INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idForneced
 -- Roupas
 INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES ('Camiseta', 40.00, 100, 3, 3, 'CottonStyle', 'Camiseta algodão', 'https://img.lojasrenner.com.br/item/549243106/large/12.jpg');
 INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES ('Calça Jeans', 100.00, 70, 3, 4, 'DenimFit', 'Calça jeans azul', 'https://cdn.awsli.com.br/600x700/1759/1759278/produto/144884621/d27aba69a8.jpg');
-INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES ('Jaqueta', 200.00, 50, 3, 5, 'LeatherStyle', 'Jaqueta couro', 'https://www.originalsaopaulo.com/wp-content/uploads/2023/04/Prada-Jaqueta-Couro-Logo.png');
+INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES ('Jaqueta', 200.00, 50, 3, 5, 'LeatherStyle', 'Jaqueta couro', 'https://png.pngtree.com/png-vector/20240709/ourmid/pngtree-sleek-and-stylish-premium-black-leather-jacket-for-a-timeless-look-png-image_13039562.png');
 INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES ('Tênis', 150.00, 80, 3, 6, 'SportFlex', 'Tênis esportivo', 'https://img.irroba.com.br/fit-in/600x600/filters:fill(fff):quality(80)/dmdamand/catalog/1500/thumbnail-co-12.jpg');
 INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES ('Meias', 20.00, 200, 3, 7, 'FootComfort', 'Meias brancas', 'https://images.tcdn.com.br/img/img_prod/1238164/kit_20_pares_meias_branca_qualidade_meia_cano_curto_feminina_soquete_varias_meias_kit_de_meias_premi_4635643_2_098b2050d12e356a839824223ee9991f.png');
 INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES ('Boné', 30.00, 120, 3, 8, 'CapStyle', 'Boné aba reta', 'https://imgcentauro-a.akamaihd.net/1366x1366/M084IV02.jpg');
@@ -100,40 +100,40 @@ INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idForneced
 INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES ('Cinto', 25.00, 150, 3, 3, 'LeatherCraft', 'Cinto de couro', 'https://images.tcdn.com.br/img/img_prod/810822/cinto_de_couro_western_marrom_costura_decorativa_173_1_a81602f3546a8e0af84cbe38ad99d327.jpg');
 
 -- Armas
-INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES
-('Faca', 50.00, 50, 4, 1, 'EdgeMaster', 'Faca de caça', 'https://images.tcdn.com.br/img/img_prod/340075/faca_de_caca_e_pesca_mk_06_9003_25610_1_33f21de94254b35aac253002c82257e5.jpg'),
-('Revolver', 1200.00, 20, 4, 2, 'FireArmTech', 'Revolver calibre 38', 'https://dcdn.mitiendanube.com/stores/002/058/681/products/captura-de-tela-2022-06-17-1413301-ea585c5c7b314f93b516554862572860-640-0.png'),
-('Espingarda', 2500.00, 15, 4, 3, 'ShotgunMasters', 'Espingarda calibre 12', 'https://armas.beartac.com.br/wp-content/uploads/2024/02/espingardacalibre12boito.jpg'),
-('Pistola', 2000.00, 25, 4, 4, 'PistolTech', 'Pistola 9mm', 'https://cdn.sentinela.ind.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/p/r/product-245-photo-5.png'),
-('Arco e Flecha', 300.00, 30, 4, 5, 'ArrowCraft', 'Conjunto de arco e flecha', 'https://http2.mlstatic.com/arco-e-flecha-xavante-nautika-48-libras-3-flechas-alvo-D_NQ_NP_14948-MLB20092782003_052014-F.jpg'),
-('Municao 9mm', 1.00, 500, 4, 6, 'AmmoSupplies', 'Munição 9mm', 'https://images.tcdn.com.br/img/img_prod/620600/municao_cbc_9mm_luger_expo_p_gold_hex_115gr_6145_1_32527f9d9071becedf2eac4e12b1600b.png'),
-('Cofre', 600.00, 10, 4, 7, 'SafeGuard', 'Cofre para armas', 'https://www.hbarros.com.br/media/catalog/product/cache/1/image/800x/9df78eab33525d08d6e5fb8d27136e95/h/b/hb-014-armario-para-armas-elitei-aberto.jpg'),
-('Colete', 1500.00, 20, 4, 8, 'ArmorTech', 'Colete a prova de balas', 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Army_IOTV.jpg/220px-Army_IOTV.jpg'),
-('Balestra', 800.00, 15, 4, 9, 'CrossBowTech', 'Balestra com mira', 'https://airsofts.com.br/wp-content/uploads/2018/12/Balestra-175-final-1.jpg'),
-('Cinto de Tiro', 70.00, 40, 4, 10, 'TacticalGear', 'Cinto de tiro tático', 'https://images.tcdn.com.br/img/img_prod/885032/cinto_invictus_modular_support_2_0_preto_21097_1_e354c1bc2d8fe78a8a990e8ace3b88ee.jpg');
+-- INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES
+-- ('Faca', 50.00, 50, 4, 1, 'EdgeMaster', 'Faca de caça', 'https://images.tcdn.com.br/img/img_prod/340075/faca_de_caca_e_pesca_mk_06_9003_25610_1_33f21de94254b35aac253002c82257e5.jpg'),
+-- ('Revolver', 1200.00, 20, 4, 2, 'FireArmTech', 'Revolver calibre 38', 'https://dcdn.mitiendanube.com/stores/002/058/681/products/captura-de-tela-2022-06-17-1413301-ea585c5c7b314f93b516554862572860-640-0.png'),
+-- ('Espingarda', 2500.00, 15, 4, 3, 'ShotgunMasters', 'Espingarda calibre 12', 'https://armas.beartac.com.br/wp-content/uploads/2024/02/espingardacalibre12boito.jpg'),
+-- ('Pistola', 2000.00, 25, 4, 4, 'PistolTech', 'Pistola 9mm', 'https://cdn.sentinela.ind.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/p/r/product-245-photo-5.png'),
+-- ('Arco e Flecha', 300.00, 30, 4, 5, 'ArrowCraft', 'Conjunto de arco e flecha', 'https://http2.mlstatic.com/arco-e-flecha-xavante-nautika-48-libras-3-flechas-alvo-D_NQ_NP_14948-MLB20092782003_052014-F.jpg'),
+-- ('Municao 9mm', 1.00, 500, 4, 6, 'AmmoSupplies', 'Munição 9mm', 'https://images.tcdn.com.br/img/img_prod/620600/municao_cbc_9mm_luger_expo_p_gold_hex_115gr_6145_1_32527f9d9071becedf2eac4e12b1600b.png'),
+-- ('Cofre', 600.00, 10, 4, 7, 'SafeGuard', 'Cofre para armas', 'https://www.hbarros.com.br/media/catalog/product/cache/1/image/800x/9df78eab33525d08d6e5fb8d27136e95/h/b/hb-014-armario-para-armas-elitei-aberto.jpg'),
+-- ('Colete', 1500.00, 20, 4, 8, 'ArmorTech', 'Colete a prova de balas', 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Army_IOTV.jpg/220px-Army_IOTV.jpg'),
+-- ('Balestra', 800.00, 15, 4, 9, 'CrossBowTech', 'Balestra com mira', 'https://airsofts.com.br/wp-content/uploads/2018/12/Balestra-175-final-1.jpg'),
+-- ('Cinto de Tiro', 70.00, 40, 4, 10, 'TacticalGear', 'Cinto de tiro tático', 'https://images.tcdn.com.br/img/img_prod/885032/cinto_invictus_modular_support_2_0_preto_21097_1_e354c1bc2d8fe78a8a990e8ace3b88ee.jpg');
 
 -- Livros
 INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES
-('Livro Aventura', 40.00, 100, 5, 1, 'AdventuraBooks', 'Livro de aventura emocionante', 'https://m.media-amazon.com/images/I/41EuLHZt2JL.jpg'),
-('Livro Romance', 35.00, 90, 5, 2, 'RomanticNovels', 'História de amor envolvente', 'https://images-americanas.b2w.io/produtos/01/00/img3/50169567/9/5016956701_1GG.jpg'),
-('Livro Ficção', 50.00, 80, 5, 3, 'SciFiReads', 'Ficção científica', 'https://editoras.com/b/wp-content/uploads/2015/01/Clockwork-Angels-os-Anjos-do-Tempo.jpg'),
-('Livro Suspense', 45.00, 70, 5, 4, 'ThrillerBooks', 'Thriller de suspense', 'https://s2-galileu.glbimg.com/kX5MuNEopurzCy6VmprJevzpjX0=/0x0:984x616/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_fde5cd494fb04473a83fa5fd57ad4542/internal_photos/bs/2022/e/k/e1rAyPRj2qKBl5beKcKQ/image5-14-.jpg'),
-('Livro Fantasia', 55.00, 60, 5, 5, 'FantasyWorld', 'Mundo de fantasia', 'https://m.media-amazon.com/images/I/51nsTQSstUL._SX342_SY445_.jpg'),
-('Livro Infantil', 30.00, 120, 5, 6, 'KidsTales', 'Histórias para crianças', 'https://m.media-amazon.com/images/I/51I0I17n2IL._SX342_SY445_.jpg'),
-('Livro Autoajuda', 40.00, 90, 5, 7, 'SelfHelpGuides', 'Guia de autoajuda', 'https://m.media-amazon.com/images/I/51hAxupVbVL._SY445_SX342_.jpg'),
-('Livro História', 60.00, 50, 5, 8, 'HistoricalTales', 'Relatos históricos', 'https://m.media-amazon.com/images/I/51FIH6q3EZL._SY445_SX342_.jpg'),
-('Livro Tecnologia', 70.00, 40, 5, 9, 'TechInsights', 'Avanços tecnológicos', 'https://m.media-amazon.com/images/I/51d0tkVcE0L._SY445_SX342_.jpg'),
-('Livro Gastronomia', 65.00, 30, 5, 10, 'FoodieBooks', 'Receitas culinárias', 'https://m.media-amazon.com/images/I/517w-s-yAkL._SY445_SX342_.jpg');
+('Livro Aventura', 40.00, 100, 4, 1, 'AdventuraBooks', 'Livro de aventura emocionante', 'https://m.media-amazon.com/images/I/41EuLHZt2JL.jpg'),
+('Livro Romance', 35.00, 90, 4, 2, 'RomanticNovels', 'História de amor envolvente', 'https://images-americanas.b2w.io/produtos/01/00/img3/50169567/9/5016956701_1GG.jpg'),
+('Livro Ficção', 50.00, 80, 4, 3, 'SciFiReads', 'Ficção científica', 'https://editoras.com/b/wp-content/uploads/2015/01/Clockwork-Angels-os-Anjos-do-Tempo.jpg'),
+('Livro Suspense', 45.00, 70, 4, 4, 'ThrillerBooks', 'Thriller de suspense', 'https://s2-galileu.glbimg.com/kX5MuNEopurzCy6VmprJevzpjX0=/0x0:984x616/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_fde5cd494fb04473a83fa5fd57ad4542/internal_photos/bs/2022/e/k/e1rAyPRj2qKBl5beKcKQ/image5-14-.jpg'),
+('Livro Fantasia', 55.00, 60, 4, 5, 'FantasyWorld', 'Mundo de fantasia', 'https://m.media-amazon.com/images/I/51nsTQSstUL._SX342_SY445_.jpg'),
+('Livro Infantil', 30.00, 120, 4, 6, 'KidsTales', 'Histórias para crianças', 'https://m.media-amazon.com/images/I/51I0I17n2IL._SX342_SY445_.jpg'),
+('Livro Autoajuda', 40.00, 90, 4, 7, 'SelfHelpGuides', 'Guia de autoajuda', 'https://m.media-amazon.com/images/I/51hAxupVbVL._SY445_SX342_.jpg'),
+('Livro História', 60.00, 50, 4, 8, 'HistoricalTales', 'Relatos históricos', 'https://m.media-amazon.com/images/I/51FIH6q3EZL._SY445_SX342_.jpg'),
+('Livro Tecnologia', 70.00, 40, 4, 9, 'TechInsights', 'Avanços tecnológicos', 'https://m.media-amazon.com/images/I/51d0tkVcE0L._SY445_SX342_.jpg'),
+('Livro Gastronomia', 65.00, 30, 4, 10, 'FoodieBooks', 'Receitas culinárias', 'https://m.media-amazon.com/images/I/517w-s-yAkL._SY445_SX342_.jpg');
 
 -- Carros
 INSERT INTO Produto (nomeProduto, valorProduto, estoque, idCategoria, idFornecedor, marcaProduto, descricaoProduto, imagem) VALUES
-('Carro Sedan', 80000.00, 10, 6, 1, 'AutomobileCo', 'Carro Sedan 2024', 'https://fotos-jornaldocarro-estadao.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2023/12/19121042/P90523114_highRes_the-bmw-i5-m60-xdriv-scaled.jpg'),
-('Carro Hatch', 60000.00, 15, 6, 2, 'CityWheels', 'Carro Hatch 2024', 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjM7dA_duwnrd-QShD07BPhuJo5Otdk49NGbf11eVSAwvmCJfnYBwWzJxXbwmgbgVZh1b0_9TNQmVV50FRhFqSnCG5bGvSvsLT6W32rLUYhv4h-6qxZC7zW673icrWEa0nNLbhpiH0u52N2Dam3tNH3ICuTevy-YY0rTLaOlCiueF278CGqh7JLziTEXA/s2560/Honda-New-City-2024-Hatchback%20%283%29.jpg'),
-('Carro SUV', 120000.00, 8, 6, 3, 'AdventureMotors', 'Carro SUV 2024', 'https://s2-autoesporte.glbimg.com/if06dZVIAj6bS0-v9TcAmSVzBqw=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2023/z/w/HZyxrQRwCTQ8VSrpUfrQ/hyundao.jpeg'),
-('Moto', 25000.00, 20, 6, 4, 'SpeedRiders', 'Moto 2024', 'https://w7.pngwing.com/pngs/626/733/png-transparent-honda-nxr-160-bros-honda-nxr-150-bros-motorcycle-honda-xre300-moto-racing-car-vehicle.png'),
-('Caminhão', 180000.00, 5, 6, 5, 'CargoHaulers', 'Caminhão de carga', 'https://blog.texaco.com.br/wp-content/uploads/2017/05/tipos-de-caminhoes-e-capacidades-veja-o-ideal-para-sua-carga.jpg'),
-('Van', 90000.00, 7, 6, 6, 'TransportVans', 'Van para transporte', 'https://www.connectvan.com.br/wp-content/uploads/2018/01/5adfb2_c35ed677fb03414ea9e81bf952616077-1-702x460.png'),
-('Conversível', 150000.00, 3, 6, 7, 'OpenDrive', 'Carro conversível', 'https://cdn.autopapo.com.br/box/uploads/2023/08/14104712/fisker-ronin-2024-prata-frente-e-lateral-capota-aberta-732x488.jpg'),
-('Picape', 100000.00, 10, 6, 8, 'RuggedTrucks', 'Picape 2024', 'https://s2-autoesporte.glbimg.com/xw8j0HF39j00EQQFiIoe9MvljUo=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2023/c/y/gLdRhdSwirNQrskzTUEg/2024-mitsubishi-triton-l200-1-.jpg'),
-('Carro Elétrico', 140000.00, 4, 6, 9, 'EcoWheels', 'Carro elétrico', 'https://s2-autoesporte.glbimg.com/NCP2C64UmY5o2Q7uZGAlYWNstTc=/0x0:1106x719/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2023/g/c/CwgAKCRLqalsz1AxiRIg/byd-dolphin-carro-eletrico.jpg'),
-('Quadriciclo', 30000.00, 12, 6, 10, 'AllTerrainQuads', 'Quadriciclo off-road', 'https://can-am.brp.com/content/dam/global/en/can-am-off-road/my23/photos/vehicle-lineup/atv/outlander/outlander-pro/ORV-ATV-MY23-5-Can-Am-Outlander-PRO-STD-HD5-Desert-Tan-0001HPB00-34FR-INTL.png');
+('Carro Sedan', 80000.00, 10, 5, 1, 'AutomobileCo', 'Carro Sedan 2024', 'https://fotos-jornaldocarro-estadao.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2023/12/19121042/P90523114_highRes_the-bmw-i5-m60-xdriv-scaled.jpg'),
+('Carro Hatch', 60000.00, 15, 5, 2, 'CityWheels', 'Carro Hatch 2024', 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjM7dA_duwnrd-QShD07BPhuJo5Otdk49NGbf11eVSAwvmCJfnYBwWzJxXbwmgbgVZh1b0_9TNQmVV50FRhFqSnCG5bGvSvsLT6W32rLUYhv4h-6qxZC7zW673icrWEa0nNLbhpiH0u52N2Dam3tNH3ICuTevy-YY0rTLaOlCiueF278CGqh7JLziTEXA/s2560/Honda-New-City-2024-Hatchback%20%283%29.jpg'),
+('Carro SUV', 120000.00, 8, 5, 3, 'AdventureMotors', 'Carro SUV 2024', 'https://s2-autoesporte.glbimg.com/if06dZVIAj6bS0-v9TcAmSVzBqw=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2023/z/w/HZyxrQRwCTQ8VSrpUfrQ/hyundao.jpeg'),
+('Moto', 25000.00, 20, 5, 5, 'SpeedRiders', 'Moto 2024', 'https://w7.pngwing.com/pngs/626/733/png-transparent-honda-nxr-160-bros-honda-nxr-150-bros-motorcycle-honda-xre300-moto-racing-car-vehicle.png'),
+('Caminhão', 180000.00, 5, 5, 5, 'CargoHaulers', 'Caminhão de carga', 'https://blog.texaco.com.br/wp-content/uploads/2017/05/tipos-de-caminhoes-e-capacidades-veja-o-ideal-para-sua-carga.jpg'),
+('Van', 90000.00, 7, 5, 6, 'TransportVans', 'Van para transporte', 'https://www.connectvan.com.br/wp-content/uploads/2018/01/5adfb2_c35ed677fb03414ea9e81bf952616077-1-702x460.png'),
+('Conversível', 150000.00, 3, 5, 7, 'OpenDrive', 'Carro conversível', 'https://cdn.autopapo.com.br/box/uploads/2023/08/14104712/fisker-ronin-2024-prata-frente-e-lateral-capota-aberta-732x488.jpg'),
+('Picape', 100000.00, 10, 5, 8, 'RuggedTrucks', 'Picape 2024', 'https://s2-autoesporte.glbimg.com/xw8j0HF39j00EQQFiIoe9MvljUo=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2023/c/y/gLdRhdSwirNQrskzTUEg/2024-mitsubishi-triton-l200-1-.jpg'),
+('Carro Elétrico', 140000.00, 4, 5, 9, 'EcoWheels', 'Carro elétrico', 'https://s2-autoesporte.glbimg.com/NCP2C64UmY5o2Q7uZGAlYWNstTc=/0x0:1106x719/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2023/g/c/CwgAKCRLqalsz1AxiRIg/byd-dolphin-carro-eletrico.jpg'),
+('Quadriciclo', 30000.00, 12, 5, 10, 'AllTerrainQuads', 'Quadriciclo off-road', 'https://can-am.brp.com/content/dam/global/en/can-am-off-road/my23/photos/vehicle-lineup/atv/outlander/outlander-pro/ORV-ATV-MY23-5-Can-Am-Outlander-PRO-STD-HD5-Desert-Tan-0001HPB00-34FR-INTL.png');
